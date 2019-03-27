@@ -1,11 +1,12 @@
 use crate::models::Users;
 use crate::{register_user, DB};
 use rocket::request::Form;
-use rocket::response::Redirect;
+use rocket_contrib::json::{Json,JsonValue};
 
-//TODO:return JSON data as repsonse instead of redirect
 #[post("/user/register", data = "<formdata>")]
-pub fn user_register(conn: DB, formdata: Form<Users>) -> Result<Redirect, diesel::result::Error> {
+pub fn user_register(conn: DB, formdata: Form<Users>) -> Result<Json<JsonValue>, Json<JsonValue>> {
     register_user(&conn, formdata.into_inner())?;
-    Ok(Redirect::to("/"))
+    Ok(Json(json!({
+        "Ok": true
+    })))
 }

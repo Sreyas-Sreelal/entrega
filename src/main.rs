@@ -1,9 +1,5 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 
-pub mod models;
-pub mod requests;
-pub mod schema;
-
 #[macro_use]
 extern crate rocket;
 
@@ -13,11 +9,17 @@ extern crate rocket_contrib;
 #[macro_use]
 extern crate diesel;
 
+pub mod models;
+pub mod requests;
+pub mod schema;
+
+
+use rocket_contrib::json::{Json,JsonValue};
+use crate::models::Users;
 use diesel::prelude::*;
 use diesel::sqlite::SqliteConnection;
 use dotenv::dotenv;
 use std::env;
-use crate::models::Users;
 
 #[database("entrega")]
 pub struct DB(SqliteConnection);
@@ -28,14 +30,22 @@ pub fn db_connect() -> SqliteConnection {
         .expect(&format!("Error connecting to {}", database_url))
 }
 
-fn register_user(conn: &DB, doc: Users) -> Result<(), diesel::result::Error> {
+fn register_user(conn: &DB, doc: Users) -> Result<(), Json<JsonValue>> {
     use schema::users;
 
-    diesel::insert_into(users::table)
+    match diesel::insert_into(users::table)
         .values(&doc)
-        .execute(conn as &SqliteConnection)?;
-
-    Ok(())
+        .execute(conn as &SqliteConnection){
+            Ok(_) => {
+                Ok(())
+            },
+            Err(err) => {
+                Err(Json(json!({
+                    "Ok":false,
+                    "message":err.to_string()
+                })))
+            }
+    }
 }
 
 fn main() {
