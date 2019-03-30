@@ -1,4 +1,4 @@
-use crate::schema::{orders, products, users};
+use crate::database::schema::{orders, products, users};
 
 #[derive(Queryable, FromForm, Insertable)]
 #[table_name = "users"]
