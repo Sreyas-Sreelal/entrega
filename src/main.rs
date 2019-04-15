@@ -11,6 +11,7 @@ extern crate diesel;
 
 pub mod database;
 pub mod requests;
+pub mod auth;
 
 use crate::database::core::DB;
 use dotenv::dotenv;
@@ -18,7 +19,13 @@ use dotenv::dotenv;
 fn main() {
     dotenv().ok();
     rocket::ignite()
-        .mount("/", routes![requests::register::user_register])
+        .mount(
+            "/",
+            routes![
+                requests::register::user_register,
+                requests::login::user_login
+            ],
+        )
         .attach(DB::fairing())
         .launch();
 }
