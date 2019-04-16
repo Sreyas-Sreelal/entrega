@@ -1,4 +1,4 @@
-use crate::database::models::Users;
+use crate::database::models::{Product, User};
 use diesel::prelude::*;
 use diesel::sqlite::SqliteConnection;
 use rocket_contrib::json::{Json, JsonValue};
@@ -13,11 +13,26 @@ pub fn db_connect() -> SqliteConnection {
         .unwrap_or_else(|_| panic!("Error connecting to {}", database_url))
 }
 
-pub fn register_user(conn: &DB, doc: Users) -> Result<(), Json<JsonValue>> {
-    use crate::database::schema::users;
+pub fn register_user(conn: &DB, doc: User) -> Result<(), Json<JsonValue>> {
+    use crate::database::schema::user;
 
-    match diesel::insert_into(users::table)
+    match diesel::insert_into(user::table)
         .values(&doc)
+        .execute(conn as &SqliteConnection)
+    {
+        Ok(_) => Ok(()),
+        Err(err) => Err(Json(json!({
+            "Ok":false,
+            "message":err.to_string()
+        }))),
+    }
+}
+
+pub fn create_product(conn: &DB, item: Product) -> Result<(), Json<JsonValue>> {
+    use crate::database::schema::product;
+
+    match diesel::insert_into(product::table)
+        .values(&item)
         .execute(conn as &SqliteConnection)
     {
         Ok(_) => Ok(()),

@@ -1,18 +1,18 @@
 pub mod login;
+pub mod product_add;
 pub mod register;
 use serde_derive::Deserialize;
 
-
-//LoginForm 
+//LoginForm
 //used as structure for serialising login request forms
-#[derive(FromForm,Deserialize,Debug)]
+#[derive(FromForm, Deserialize, Debug)]
 pub struct LoginForm {
     pub name: String,
-    pub password: String
+    pub password: String,
 }
 
 /*
-//RegisterForm 
+//RegisterForm
 //used as structure for serialising register request forms
 #[derive(FromForm,Debug,Insertable)]
 pub struct RegisterForm {

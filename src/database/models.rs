@@ -1,35 +1,38 @@
-use crate::database::schema::{orders, products, users,admins};
+use crate::database::schema::{admin, order, product, user};
 use serde_derive::Deserialize;
 
-#[derive(Queryable, FromForm, Insertable,Debug,Deserialize)]
-#[table_name = "users"]
-pub struct Users {
-    user_id: Option<i32>,
-    user_name: String,
+#[derive(Identifiable, Queryable, FromForm, Insertable, Debug, Deserialize)]
+#[primary_key(user_id)]
+#[table_name = "user"]
+pub struct User {
+    pub user_id: Option<i32>,
+    pub user_name: String,
     pub password: String,
-    email: String,
-    display_name: String,
-    address: String,
+    pub email: String,
+    pub display_name: String,
+    pub address: String,
 }
 
-#[derive(Queryable, FromForm, Insertable)]
-#[table_name = "admins"]
-pub struct Admins{
-    user_id: i32,
+#[derive(Identifiable, Queryable, FromForm, Associations, Insertable)]
+#[belongs_to(User, foreign_key = "user_id")]
+#[primary_key(user_id)]
+#[table_name = "admin"]
+pub struct Admin {
+    user_id: Option<i32>,
 }
 
-#[derive(Queryable, FromForm, Insertable)]
-#[table_name = "products"]
-pub struct Products {
-    product_id: i32,
+#[derive(Queryable, FromForm, Insertable, Deserialize)]
+#[table_name = "product"]
+pub struct Product {
+    product_id: Option<i32>,
     product_name: String,
     price: f32,
     rating: f32,
 }
 
-#[derive(Queryable, FromForm, Insertable)]
-#[table_name = "orders"]
-pub struct Orders {
+#[derive(Queryable, FromForm, Associations, Insertable)]
+#[table_name = "order"]
+pub struct Order {
     order_id: i32,
     product_id: i32,
     user_id: i32,

@@ -1,11 +1,11 @@
 table! {
-    admins (user_id) {
-        user_id -> Integer,
+    admin (user_id) {
+        user_id -> Nullable<Integer>,
     }
 }
 
 table! {
-    orders (order_id) {
+    order (order_id) {
         order_id -> Integer,
         product_id -> Integer,
         user_id -> Integer,
@@ -15,8 +15,8 @@ table! {
 }
 
 table! {
-    products (product_id) {
-        product_id -> Integer,
+    product (product_id) {
+        product_id -> Nullable<Integer>,
         product_name -> Text,
         price -> Float,
         rating -> Nullable<Float>,
@@ -24,7 +24,7 @@ table! {
 }
 
 table! {
-    users (user_id) {
+    user (user_id) {
         user_id -> Nullable<Integer>,
         user_name -> Text,
         password -> Text,
@@ -34,13 +34,8 @@ table! {
     }
 }
 
-joinable!(admins -> users (user_id));
-joinable!(orders -> products (product_id));
-joinable!(orders -> users (user_id));
+joinable!(admin -> user (user_id));
+joinable!(order -> product (product_id));
+joinable!(order -> user (user_id));
 
-allow_tables_to_appear_in_same_query!(
-    admins,
-    orders,
-    products,
-    users,
-);
+allow_tables_to_appear_in_same_query!(admin, order, product, user,);
