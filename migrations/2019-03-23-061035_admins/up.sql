@@ -1,4 +1,4 @@
-CREATE TABLE admins(
-    user_id INTEGER PRIMARY KEY NOT NULL,
-    FOREIGN KEY(user_id) REFERENCES users(user_id)
+CREATE TABLE admin(
+    user_id INTEGER PRIMARY KEY,
+    FOREIGN KEY(user_id) REFERENCES user(user_id)
 )

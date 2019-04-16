@@ -1,1 +1,1 @@
-DROP TABLE admins;
+DROP TABLE admin;
