@@ -7,7 +7,7 @@ table! {
 table! {
     order (order_id) {
         order_id -> Integer,
-        product_id -> Integer,
+        product_id -> Nullable<Text>,
         user_id -> Integer,
         ordered_date -> Integer,
         expected_date -> Integer,
@@ -16,7 +16,7 @@ table! {
 
 table! {
     product (product_id) {
-        product_id -> Nullable<Integer>,
+        product_id -> Nullable<Text>,
         product_name -> Text,
         price -> Float,
         rating -> Nullable<Float>,

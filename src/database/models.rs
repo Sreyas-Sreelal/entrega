@@ -24,7 +24,7 @@ pub struct Admin {
 #[derive(Queryable, FromForm, Insertable, Deserialize)]
 #[table_name = "product"]
 pub struct Product {
-    product_id: Option<i32>,
+    pub product_id: Option<String>,
     product_name: String,
     price: f32,
     rating: f32,
@@ -34,7 +34,7 @@ pub struct Product {
 #[table_name = "order"]
 pub struct Order {
     order_id: i32,
-    product_id: i32,
+    product_id: Option<String>,
     user_id: i32,
     ordered_date: i32,
     expected_date: i32,

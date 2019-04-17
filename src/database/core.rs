@@ -3,6 +3,7 @@ use diesel::prelude::*;
 use diesel::sqlite::SqliteConnection;
 use rocket_contrib::json::{Json, JsonValue};
 use std::env;
+use uuid::Uuid;
 
 #[database("entrega")]
 pub struct DB(SqliteConnection);
@@ -49,14 +50,15 @@ pub fn register_user(conn: &DB, doc: User) -> Result<(), Json<JsonValue>> {
     }
 }
 
-pub fn create_product(conn: &DB, item: Product) -> Result<(), Json<JsonValue>> {
+pub fn create_product(conn: &DB, mut item: Product) -> Result<String, Json<JsonValue>> {
     use crate::database::schema::product;
-
+    let id = Uuid::new_v4().to_hyphenated().to_string();
+    item.product_id = Some(id);
     match diesel::insert_into(product::table)
         .values(&item)
         .execute(conn as &SqliteConnection)
     {
-        Ok(_) => Ok(()),
+        Ok(_) => Ok(String::from(item.product_id.unwrap())),
         Err(err) => Err(Json(json!({
             "Ok":false,
             "message":err.to_string()
