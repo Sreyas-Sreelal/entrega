@@ -1,8 +1,5 @@
 use crate::database::core::{check_admin, fetch_user, DB};
-use crate::database::models::{Admin, User};
 use crate::requests::LoginForm;
-use diesel::prelude::*;
-use diesel::SqliteConnection;
 use jsonwebtoken::{decode, encode, Algorithm, Header};
 use rocket_contrib::json::{Json, JsonValue};
 
