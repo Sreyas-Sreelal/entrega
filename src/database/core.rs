@@ -35,6 +35,24 @@ pub fn fetch_user(conn: &DB, username: &str) -> Result<User, Json<JsonValue>> {
     }
 }
 
+pub fn fetch_product(conn: &DB,limit:i64) -> Result<Vec<Product>, Json<JsonValue>> {
+    use crate::database::schema::product::dsl::*;
+
+    no_arg_sql_function!(RANDOM, (), "Represents the sql RANDOM() function");
+
+    match product
+        .order(RANDOM)
+        .limit(limit)
+        .load::<Product>(conn as & SqliteConnection) {
+            Ok(u) => Ok(u),
+            Err(err) => Err(Json(json!({
+                "Ok":false,
+                "message":err.to_string()
+            }))),
+    
+    }
+}
+
 pub fn register_user(conn: &DB, doc: User) -> Result<(), Json<JsonValue>> {
     use crate::database::schema::user;
 
