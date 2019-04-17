@@ -1,4 +1,4 @@
-use crate::database::core::DB;
+use crate::database::core::{check_admin, fetch_user, DB};
 use crate::database::models::{Admin, User};
 use crate::requests::LoginForm;
 use diesel::prelude::*;
@@ -55,20 +55,8 @@ pub fn token_decode(token: &str) -> Result<AuthData, Json<JsonValue>> {
 
 pub fn auth_user(conn: &DB, data: LoginForm) -> Result<String, Json<JsonValue>> {
     let username = data.name;
-    use crate::database::schema::user::dsl::*;
-    let user_fetched = match user
-        .filter(user_name.eq(&username))
-        .first::<User>(conn as &SqliteConnection)
-    {
-        Ok(u) => u,
-        Err(err) => {
-            return Err(Json(json!({
-                "Ok":false,
-                "message":err.to_string()
-            })));
-        }
-    };
 
+    let user_fetched = fetch_user(conn, &username)?;
     println!("[Debug] user authention form {:?}", user_fetched);
 
     if user_fetched.password != data.password {
@@ -77,15 +65,12 @@ pub fn auth_user(conn: &DB, data: LoginForm) -> Result<String, Json<JsonValue>> 
             "message":"Authentication Failed"
         })));
     }
-    let admin_fetched =
-        match Admin::belonging_to(&user_fetched).first::<Admin>(conn as &SqliteConnection) {
-            Ok(_) => true,
-            Err(_) => false,
-        };
 
-    println!("admin {}", admin_fetched);
+    let admin = check_admin(conn, &user_fetched);
 
-    let token = token_generate(username, admin_fetched);
+    println!("admin {}", admin);
+
+    let token = token_generate(username, admin);
 
     return Ok(token);
 }
