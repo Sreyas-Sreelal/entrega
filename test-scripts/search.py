@@ -2,9 +2,9 @@ import requests
 import json
 
 re = requests.post(
-    "http://localhost:8000/product/get_random",
+    "http://localhost:8000/product/search",
     data=json.dumps({
-        'limit':10
+        'name':input('input name to search : ')
     })
     )
 print("Response: ",re.json())

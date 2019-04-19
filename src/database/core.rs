@@ -1,4 +1,5 @@
 use crate::database::models::{Admin, Product, User};
+use crate::requests::ProductSearchPayload;
 use diesel::prelude::*;
 use diesel::sqlite::SqliteConnection;
 use rocket_contrib::json::{Json, JsonValue};
@@ -25,24 +26,6 @@ pub fn fetch_user(conn: &DB, username: &str) -> Result<User, Json<JsonValue>> {
     match user
         .filter(user_name.eq(&username))
         .first::<User>(conn as &SqliteConnection)
-    {
-        Ok(u) => Ok(u),
-        Err(err) => Err(Json(json!({
-            "Ok":false,
-            "message":err.to_string()
-        }))),
-    }
-}
-
-pub fn fetch_random_product(conn: &DB, limit: i64) -> Result<Vec<Product>, Json<JsonValue>> {
-    use crate::database::schema::product::dsl::*;
-
-    no_arg_sql_function!(RANDOM, (), "Represents the sql RANDOM() function");
-
-    match product
-        .order(RANDOM)
-        .limit(limit)
-        .load::<Product>(conn as &SqliteConnection)
     {
         Ok(u) => Ok(u),
         Err(err) => Err(Json(json!({
@@ -84,3 +67,46 @@ pub fn create_product(conn: &DB, mut item: Product) -> Result<String, Json<JsonV
     }
 }
 
+pub fn fetch_random_product(conn: &DB, limit: i64) -> Result<Vec<Product>, Json<JsonValue>> {
+    use crate::database::schema::product::dsl::*;
+
+    no_arg_sql_function!(RANDOM, (), "Represents the sql RANDOM() function");
+
+    match product
+        .order(RANDOM)
+        .limit(limit)
+        .load::<Product>(conn as &SqliteConnection)
+    {
+        Ok(u) => Ok(u),
+        Err(err) => Err(Json(json!({
+            "Ok":false,
+            "message":err.to_string()
+        }))),
+    }
+}
+
+pub fn db_search_product(
+    conn: &DB,
+    payload: ProductSearchPayload,
+) -> Result<Vec<Product>, Json<JsonValue>> {
+    use crate::database::schema::product::dsl::*;
+    if payload.name.is_some() {
+        match product
+            .filter(product_name.like(format!("%{}%", payload.name.unwrap())))
+            .load::<Product>(conn as &SqliteConnection)
+        {
+            Ok(products) => return Ok(products),
+            Err(err) => {
+                return Err(Json(json!({
+                    "Ok":false,
+                    "message":err.to_string()
+                })));
+            }
+        };
+    }
+
+    Err(Json(json!({
+        "Ok":false,
+        "message":"UnRecognised payload"
+    })))
+}

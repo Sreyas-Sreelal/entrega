@@ -21,7 +21,7 @@ pub struct Admin {
     user_id: Option<i32>,
 }
 
-#[derive(Queryable, FromForm, Insertable, Deserialize, Serialize)]
+#[derive(Queryable, FromForm, Insertable, Deserialize, Serialize, QueryableByName)]
 #[table_name = "product"]
 pub struct Product {
     pub product_id: Option<String>,
