@@ -1,4 +1,4 @@
-pub mod get_product;
+pub mod get_random_product;
 pub mod login;
 pub mod product_add;
 pub mod register;

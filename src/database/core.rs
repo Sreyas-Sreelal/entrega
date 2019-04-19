@@ -34,7 +34,7 @@ pub fn fetch_user(conn: &DB, username: &str) -> Result<User, Json<JsonValue>> {
     }
 }
 
-pub fn fetch_product(conn: &DB, limit: i64) -> Result<Vec<Product>, Json<JsonValue>> {
+pub fn fetch_random_product(conn: &DB, limit: i64) -> Result<Vec<Product>, Json<JsonValue>> {
     use crate::database::schema::product::dsl::*;
 
     no_arg_sql_function!(RANDOM, (), "Represents the sql RANDOM() function");
@@ -83,3 +83,4 @@ pub fn create_product(conn: &DB, mut item: Product) -> Result<String, Json<JsonV
         }))),
     }
 }
+
