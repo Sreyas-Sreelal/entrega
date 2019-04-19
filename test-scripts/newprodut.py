@@ -27,9 +27,9 @@ print("Token is ",token)
 re = session.post(
     "http://localhost:8000/product/new",
     data=json.dumps({
-        'product_name': "Helmet",
-        'price': 300,
-        'rating': 7.0,
+        'product_name': input("Enter product_name: "),
+        'price': int(input("Enter price: ")),
+        'rating': float(input("Enter rating: ")),
     }),
     cookies={"jwt":token}
     )
