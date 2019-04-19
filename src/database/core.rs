@@ -15,10 +15,9 @@ pub fn db_connect() -> SqliteConnection {
 }
 
 pub fn check_admin(conn: &DB, user_fetched: &User) -> bool {
-    match Admin::belonging_to(user_fetched).first::<Admin>(conn as &SqliteConnection) {
-        Ok(_) => true,
-        Err(_) => false,
-    }
+    Admin::belonging_to(user_fetched)
+        .first::<Admin>(conn as &SqliteConnection)
+        .is_ok()
 }
 
 pub fn fetch_user(conn: &DB, username: &str) -> Result<User, Json<JsonValue>> {
@@ -35,7 +34,7 @@ pub fn fetch_user(conn: &DB, username: &str) -> Result<User, Json<JsonValue>> {
     }
 }
 
-pub fn fetch_product(conn: &DB,limit:i64) -> Result<Vec<Product>, Json<JsonValue>> {
+pub fn fetch_product(conn: &DB, limit: i64) -> Result<Vec<Product>, Json<JsonValue>> {
     use crate::database::schema::product::dsl::*;
 
     no_arg_sql_function!(RANDOM, (), "Represents the sql RANDOM() function");
@@ -43,13 +42,13 @@ pub fn fetch_product(conn: &DB,limit:i64) -> Result<Vec<Product>, Json<JsonValue
     match product
         .order(RANDOM)
         .limit(limit)
-        .load::<Product>(conn as & SqliteConnection) {
-            Ok(u) => Ok(u),
-            Err(err) => Err(Json(json!({
-                "Ok":false,
-                "message":err.to_string()
-            }))),
-    
+        .load::<Product>(conn as &SqliteConnection)
+    {
+        Ok(u) => Ok(u),
+        Err(err) => Err(Json(json!({
+            "Ok":false,
+            "message":err.to_string()
+        }))),
     }
 }
 
@@ -72,11 +71,12 @@ pub fn create_product(conn: &DB, mut item: Product) -> Result<String, Json<JsonV
     use crate::database::schema::product;
     let id = Uuid::new_v4().to_hyphenated().to_string();
     item.product_id = Some(id);
+
     match diesel::insert_into(product::table)
         .values(&item)
         .execute(conn as &SqliteConnection)
     {
-        Ok(_) => Ok(String::from(item.product_id.unwrap())),
+        Ok(_) => Ok(item.product_id.unwrap()),
         Err(err) => Err(Json(json!({
             "Ok":false,
             "message":err.to_string()

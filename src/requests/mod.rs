@@ -1,7 +1,7 @@
+pub mod get_product;
 pub mod login;
 pub mod product_add;
 pub mod register;
-pub mod get_product;
 use serde_derive::Deserialize;
 
 //LoginForm

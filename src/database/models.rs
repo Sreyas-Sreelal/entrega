@@ -1,5 +1,5 @@
 use crate::database::schema::{admin, order, product, user};
-use serde_derive::{Deserialize,Serialize};
+use serde_derive::{Deserialize, Serialize};
 
 #[derive(Identifiable, Queryable, FromForm, Insertable, Debug, Deserialize)]
 #[primary_key(user_id)]
@@ -21,7 +21,7 @@ pub struct Admin {
     user_id: Option<i32>,
 }
 
-#[derive(Queryable, FromForm, Insertable, Deserialize,Serialize)]
+#[derive(Queryable, FromForm, Insertable, Deserialize, Serialize)]
 #[table_name = "product"]
 pub struct Product {
     pub product_id: Option<String>,

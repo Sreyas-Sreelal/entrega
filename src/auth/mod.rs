@@ -1,6 +1,7 @@
 use crate::database::core::{check_admin, fetch_user, DB};
 use crate::requests::LoginForm;
 use jsonwebtoken::{decode, encode, Algorithm, Header};
+use rocket::http::Cookies;
 use rocket_contrib::json::{Json, JsonValue};
 
 #[derive(Debug, RustcEncodable, RustcDecodable)]
@@ -30,8 +31,8 @@ fn token_generate(user: String, admin: bool) -> String {
     let payload = AuthData {
         iat: now,
         exp: now + ONE_WEEK,
-        user: user,
-        admin: admin,
+        user,
+        admin,
     };
 
     encode(Header::default(), &payload, KEY).unwrap()
@@ -41,12 +42,10 @@ pub fn token_decode(token: &str) -> Result<AuthData, Json<JsonValue>> {
     println!("token {}", token);
     match decode::<AuthData>(&token, KEY, Algorithm::HS256) {
         Ok(c) => Ok(c.claims),
-        Err(err) => {
-            return Err(Json(json!({
-                "Ok":false,
-                "message":err.to_string()
-            })));
-        }
+        Err(err) => Err(Json(json!({
+            "Ok":false,
+            "message":err.to_string()
+        }))),
     }
 }
 
@@ -69,5 +68,32 @@ pub fn auth_user(conn: &DB, data: LoginForm) -> Result<String, Json<JsonValue>> 
 
     let token = token_generate(username, admin);
 
-    return Ok(token);
+    Ok(token)
+}
+
+pub fn token_validate(need_admin: bool, cookies: Cookies) -> Result<(), Json<JsonValue>> {
+    let token = cookies.get("jwt");
+    if token == None {
+        return Err(Json(json!({
+            "Ok":false,
+            "message":"Empty token"
+        })));
+    }
+
+    let auth = token_decode(token.unwrap().value())?;
+    if !auth.is_admin() && need_admin {
+        return Err(Json(json!({
+            "Ok": false,
+            "message": "Authentication needed"
+        })));
+    }
+
+    if auth.is_expired() {
+        return Err(Json(json!({
+            "Ok": false,
+            "message": "Token Expired"
+        })));
+    }
+
+    Ok(())
 }
