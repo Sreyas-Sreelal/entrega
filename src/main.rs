@@ -15,6 +15,7 @@ pub mod requests;
 
 use crate::database::core::DB;
 use dotenv::dotenv;
+use crate::auth::cors::CORS;
 
 fn main() {
     dotenv().ok();
@@ -30,5 +31,6 @@ fn main() {
             ],
         )
         .attach(DB::fairing())
+        .attach(CORS())
         .launch();
 }

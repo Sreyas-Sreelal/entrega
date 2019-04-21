@@ -1,3 +1,4 @@
+pub mod cors;
 use crate::database::core::{check_admin, fetch_user, DB};
 use crate::requests::LoginForm;
 use jsonwebtoken::{decode, encode, Algorithm, Header};
