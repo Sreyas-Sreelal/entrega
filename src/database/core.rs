@@ -24,7 +24,7 @@ pub fn check_admin(conn: &DB, user_fetched: &User) -> bool {
 pub fn fetch_user(conn: &DB, username: &str) -> Result<User, Json<JsonValue>> {
     use crate::database::schema::user::dsl::*;
     match user
-        .filter(user_name.eq(&username))
+        .filter(user_name.eq(&username.to_ascii_lowercase()))
         .first::<User>(conn as &SqliteConnection)
     {
         Ok(u) => Ok(u),

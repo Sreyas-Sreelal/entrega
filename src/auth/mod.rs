@@ -51,7 +51,7 @@ pub fn token_decode(token: &str) -> Result<AuthData, Json<JsonValue>> {
 }
 
 pub fn auth_user(conn: &DB, data: LoginForm) -> Result<String, Json<JsonValue>> {
-    let username = data.name;
+    let username = data.name.to_ascii_lowercase();
 
     let user_fetched = fetch_user(conn, &username)?;
     println!("[Debug] user authention form {:?}", user_fetched);
