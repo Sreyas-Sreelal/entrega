@@ -38,4 +38,9 @@ joinable!(admin -> user (user_id));
 joinable!(order -> product (product_id));
 joinable!(order -> user (user_id));
 
-allow_tables_to_appear_in_same_query!(admin, order, product, user,);
+allow_tables_to_appear_in_same_query!(
+    admin,
+    order,
+    product,
+    user,
+);

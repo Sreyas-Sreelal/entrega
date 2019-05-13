@@ -35,8 +35,9 @@ pub fn fetch_user(conn: &DB, username: &str) -> Result<User, Json<JsonValue>> {
     }
 }
 
-pub fn register_user(conn: &DB, doc: User) -> Result<(), Json<JsonValue>> {
+pub fn register_user(conn: &DB, mut doc: User) -> Result<(), Json<JsonValue>> {
     use crate::database::schema::user;
+    doc.user_name = doc.user_name.to_ascii_lowercase();
 
     match diesel::insert_into(user::table)
         .values(&doc)
