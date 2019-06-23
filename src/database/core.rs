@@ -1,23 +1,23 @@
 use crate::database::models::{Admin, Product, User};
 use crate::requests::ProductSearchPayload;
 use diesel::prelude::*;
-use diesel::sqlite::SqliteConnection;
+use diesel::mysql::MysqlConnection;
 use rocket_contrib::json::{Json, JsonValue};
 use std::env;
 use uuid::Uuid;
 
 #[database("entrega")]
-pub struct DB(SqliteConnection);
+pub struct DB(MysqlConnection);
 
-pub fn db_connect() -> SqliteConnection {
+pub fn db_connect() -> MysqlConnection {
     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
-    SqliteConnection::establish(&database_url)
+    MysqlConnection::establish(&database_url)
         .unwrap_or_else(|_| panic!("Error connecting to {}", database_url))
 }
 
 pub fn check_admin(conn: &DB, user_fetched: &User) -> bool {
     Admin::belonging_to(user_fetched)
-        .first::<Admin>(conn as &SqliteConnection)
+        .first::<Admin>(conn as &MysqlConnection)
         .is_ok()
 }
 
@@ -25,7 +25,7 @@ pub fn fetch_user(conn: &DB, username: &str) -> Result<User, Json<JsonValue>> {
     use crate::database::schema::user::dsl::*;
     match user
         .filter(user_name.eq(&username.to_ascii_lowercase()))
-        .first::<User>(conn as &SqliteConnection)
+        .first::<User>(conn as &MysqlConnection)
     {
         Ok(u) => Ok(u),
         Err(err) => Err(Json(json!({
@@ -41,7 +41,7 @@ pub fn register_user(conn: &DB, mut doc: User) -> Result<(), Json<JsonValue>> {
 
     match diesel::insert_into(user::table)
         .values(&doc)
-        .execute(conn as &SqliteConnection)
+        .execute(conn as &MysqlConnection)
     {
         Ok(_) => Ok(()),
         Err(err) => Err(Json(json!({
@@ -58,7 +58,7 @@ pub fn create_product(conn: &DB, mut item: Product) -> Result<String, Json<JsonV
 
     match diesel::insert_into(product::table)
         .values(&item)
-        .execute(conn as &SqliteConnection)
+        .execute(conn as &MysqlConnection)
     {
         Ok(_) => Ok(item.product_id.unwrap()),
         Err(err) => Err(Json(json!({
@@ -76,7 +76,7 @@ pub fn fetch_random_product(conn: &DB, limit: i64) -> Result<Vec<Product>, Json<
     match product
         .order(RANDOM)
         .limit(limit)
-        .load::<Product>(conn as &SqliteConnection)
+        .load::<Product>(conn as &MysqlConnection)
     {
         Ok(u) => Ok(u),
         Err(err) => Err(Json(json!({
@@ -94,7 +94,7 @@ pub fn db_search_product(
     if payload.name.is_some() {
         match product
             .filter(product_name.like(format!("%{}%", payload.name.unwrap())))
-            .load::<Product>(conn as &SqliteConnection)
+            .load::<Product>(conn as &MysqlConnection)
         {
             Ok(products) => return Ok(products),
             Err(err) => {

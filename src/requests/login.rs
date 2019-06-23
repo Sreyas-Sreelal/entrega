@@ -4,6 +4,7 @@ use crate::requests::LoginForm;
 use rocket::http::{Cookie, Cookies};
 use rocket_contrib::json::{Json, JsonValue};
 
+//TODO: pass admin status too 
 #[post("/user/auth", data = "<data>")]
 pub fn user_login(
     mut cookies: Cookies,
