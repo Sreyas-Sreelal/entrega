@@ -1,13 +1,13 @@
 table! {
     admin (user_id) {
-        user_id -> Integer,
+        user_id -> Nullable<Integer>,
     }
 }
 
 table! {
     order (order_id) {
         order_id -> Integer,
-        product_id -> Nullable<Varchar>,
+        product_id -> Nullable<Text>,
         user_id -> Integer,
         ordered_date -> Integer,
         expected_date -> Integer,
@@ -16,8 +16,8 @@ table! {
 
 table! {
     product (product_id) {
-        product_id -> Varchar,
-        product_name -> Varchar,
+        product_id -> Nullable<Text>,
+        product_name -> Text,
         price -> Float,
         rating -> Nullable<Float>,
     }
@@ -25,11 +25,11 @@ table! {
 
 table! {
     user (user_id) {
-        user_id -> Integer,
-        user_name -> Varchar,
-        password -> Varchar,
-        email -> Varchar,
-        display_name -> Varchar,
+        user_id -> Nullable<Integer>,
+        user_name -> Text,
+        password -> Text,
+        email -> Text,
+        display_name -> Text,
         address -> Text,
     }
 }
