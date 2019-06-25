@@ -71,10 +71,10 @@ pub fn create_product(conn: &DB, mut item: Product) -> Result<String, Json<JsonV
 pub fn fetch_random_product(conn: &DB, limit: i64) -> Result<Vec<Product>, Json<JsonValue>> {
     use crate::database::schema::product::dsl::*;
 
-    no_arg_sql_function!(RANDOM, (), "Represents the sql RANDOM() function");
+    no_arg_sql_function!(RAND, (), "Represents the MySQL RAND() function");
 
     match product
-        .order(RANDOM)
+        .order(RAND)
         .limit(limit)
         .load::<Product>(conn as &MysqlConnection)
     {

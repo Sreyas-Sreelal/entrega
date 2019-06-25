@@ -16,7 +16,7 @@ re = session.post(
     "http://localhost:8000/user/auth",
     data=json.dumps({
         'name':'Sreyas',
-        'password':'mypass'
+        'password':'password'
 }))
 
 print("Response: ",re.content)
