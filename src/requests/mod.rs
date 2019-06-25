@@ -3,6 +3,8 @@ pub mod login;
 pub mod product_add;
 pub mod register;
 pub mod search_product;
+pub mod get_product_details;
+
 
 use serde_derive::Deserialize;
 

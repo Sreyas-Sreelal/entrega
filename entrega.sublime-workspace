@@ -1,0 +1,1083 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ret",
+				"requests"
+			],
+			[
+				"get",
+				"GetProductDetails\tmethod"
+			],
+			[
+				"pro",
+				"product_id"
+			],
+			[
+				"pr",
+				"product"
+			],
+			[
+				"Inp",
+				"InputI\talias"
+			],
+			[
+				"I",
+				"Input\talias"
+			],
+			[
+				"With",
+				"withRouter\talias"
+			],
+			[
+				"w",
+				"withCSS\tconst"
+			],
+			[
+				"set",
+				"setSize"
+			],
+			[
+				"a",
+				"a"
+			],
+			[
+				"File",
+				"FileInputStreamReader"
+			],
+			[
+				"thw",
+				"throw"
+			],
+			[
+				"eat",
+				"eat"
+			],
+			[
+				"ArraY",
+				"ArrayIndexOutOfBoundsException"
+			],
+			[
+				"voca",
+				"voca_say"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "migrations/2019-03-23-050623_orders/up.sql",
+			"settings":
+			{
+				"buffer_size": 320,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/database/schema.rs",
+			"settings":
+			{
+				"buffer_size": 923,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/database/core.rs",
+			"settings":
+			{
+				"buffer_size": 3651,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/requests/get_random_product.rs",
+			"settings":
+			{
+				"buffer_size": 538,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/requests/product_add.rs",
+			"settings":
+			{
+				"buffer_size": 553,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test-scripts/newprodut.py",
+			"settings":
+			{
+				"buffer_size": 2797,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sys/repos/online-shopping-site/src/pages/products.tsx",
+			"settings":
+			{
+				"buffer_size": 1657,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/requests/get_product_details.rs",
+			"settings":
+			{
+				"buffer_size": 564,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/requests/mod.rs",
+			"settings":
+			{
+				"buffer_size": 821,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/database/models.rs",
+			"settings":
+			{
+				"buffer_size": 1155,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main.rs",
+			"settings":
+			{
+				"buffer_size": 836,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sys/repos/online-shopping-site/src/App.tsx",
+			"settings":
+			{
+				"buffer_size": 5075,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sys/repos/online-shopping-site/src/pages/home.tsx",
+			"settings":
+			{
+				"buffer_size": 2090,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sys/repos/online-shopping-site/src/components/cards.tsx",
+			"settings":
+			{
+				"buffer_size": 943,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/auth/cors.rs",
+			"settings":
+			{
+				"buffer_size": 1081,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"colo",
+				"UI: Select Color Scheme"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"la",
+				"LSP: Enable Language Server in Project"
+			],
+			[
+				"package",
+				"Preferences: Package Control Settings – User"
+			],
+			[
+				"theme",
+				"ayu: Activate theme"
+			],
+			[
+				"REMOVE",
+				"Package Control: Remove Package"
+			],
+			[
+				"PACKAGE",
+				"Package Control: Install Package"
+			],
+			[
+				"ui",
+				"UI: Select Color Scheme"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"settigs",
+				"Preferences: Settings"
+			],
+			[
+				"install",
+				"Install Package Control"
+			],
+			[
+				"package c",
+				"Package Control: Remove Package"
+			],
+			[
+				"jac",
+				"JavaScript Enhancements Unused Variable: Next"
+			],
+			[
+				"packagei",
+				"Package Control: Install Package"
+			],
+			[
+				"langu",
+				"LSP: Enable Language Server in Project"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"pakca",
+				"Package Control: Install Package"
+			],
+			[
+				"lsp",
+				"LSP: Enable Language Server in Project"
+			],
+			[
+				"",
+				"Build With: RustEnhanced"
+			],
+			[
+				"terminal",
+				"Terminal View: Open Bash Terminal"
+			],
+			[
+				"mardownpre",
+				"MarkdownLivePreview: Edit Current File"
+			],
+			[
+				"package remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"mark",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"thee",
+				"UI: Select Theme"
+			],
+			[
+				"rls",
+				"Rust: List All Messages"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"color",
+				"UI: Select Color Scheme"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"br",
+				"Preferences: Browse Packages"
+			],
+			[
+				":",
+				"UI: Select Color Scheme"
+			],
+			[
+				" install package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 415.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": true,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/sys/repos/online-shopping-site",
+		"/home/sys/repos/online-shopping-site/src",
+		"/home/sys/repos/online-shopping-site/src/components",
+		"/home/sys/repos/online-shopping-site/src/pages",
+		"/home/sys/repos/online-shopping-site/src/styles"
+	],
+	"file_history":
+	[
+		"/home/sys/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
+		"/home/sys/repos/entrega-frontend/pages/_document.js",
+		"/home/sys/repos/entrega-frontend/server.js",
+		"/home/sys/repos/entrega/migrations/2019-03-23-042735_users/up.sql",
+		"/etc/mysql/my.cnf",
+		"/home/sys/.config/i3/config",
+		"/home/sys/repos/entrega/Cargo.toml",
+		"/home/sys/.cargo/registry/src/github.com-1ecc6299db9ec823/diesel-1.4.2/src/mysql/connection/mod.rs",
+		"/home/sys/repos/entrega/src/requests/login.rs",
+		"/home/sys/repos/entrega/src/database/core.rs",
+		"/home/sys/repos/online-shopping/next.config.js",
+		"/home/sys/repos/online-shopping/App.css",
+		"/home/sys/repos/online-shopping/pages/index.tsx",
+		"/home/sys/repos/online-shopping/pages/App.tsx",
+		"/home/sys/repos/online-shopping/pages/_document.tsx",
+		"/home/sys/.cache/wal/schemes/_home_sys_Downloads_W_2013_198_jpg_dark_None_None_1.1.0.json",
+		"/home/sys/repos/online-shopping/.babelrc.js",
+		"/home/sys/repos/online-shopping/tsconfig.json",
+		"/home/sys/.config/compton.conf",
+		"/home/sys/repos/online-shopping/src/register.tsx",
+		"/home/sys/repos/online-shopping/pages/_app.tsx",
+		"/home/sys/repos/online-shopping/package.json",
+		"/home/sys/repos/online-shopping/src/login.tsx",
+		"/home/sys/.cargo/registry/src/github.com-1ecc6299db9ec823/rocket_contrib-0.4.0/src/lib.rs",
+		"/home/sys/.config/termite/config",
+		"/home/sys/repos/java-learning/sample.txt",
+		"/home/sys/repos/java-learning/mypackage/core.java",
+		"/home/sys/repos/voca/voice.py",
+		"/home/sys/.zshrc",
+		"/home/sys/repos/imgcode/src/gcode.rs",
+		"/home/sys/repos/imgcode/imgcode.sublime-project",
+		"/home/sys/test.pwn",
+		"/home/sys/repos/imgcode/src/raster.rs",
+		"/home/sys/repos/imgcode/src/main.rs",
+		"/home/sys/repos/epsilon-rs/epsilon.sublime-project",
+		"/home/sys/repos/pawn-scraper/pawn.json",
+		"/home/sys/repos/tgconnector/README.md",
+		"/home/sys/repos/samp-bcrypt/new.bbcode",
+		"/home/sys/.config/gtk-3.0/settings.ini",
+		"/home/sys/.fluxbox/menu",
+		"/home/sys/.fluxbox/keys",
+		"/home/sys/.fluxbox/startup",
+		"/home/sys/.xbindkeysrc",
+		"/.config/polybar/launch.sh"
+	],
+	"find":
+	{
+		"height": 54.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "migrations/2019-03-23-050623_orders/up.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 320,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								320,
+								320
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1561364914.4,
+							"syntax": "Packages/SQL/SQL.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/database/schema.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 923,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								429,
+								429
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1561452383.9,
+							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/database/core.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3651,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2683,
+								2683
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".:",
+									"selector": "source.rust"
+								}
+							],
+							"lsp_language":
+							{
+								"rls": "rust"
+							},
+							"markdonw_live_preview_last_run": 1561365062.03,
+							"show_definitions": false,
+							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": true,
+								"indentSize": 4,
+								"tabSize": 4
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 1281.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/requests/get_random_product.rs",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 538,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1561458341.11,
+							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/requests/product_add.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 553,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								552,
+								552
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1561443013.94,
+							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "test-scripts/newprodut.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2797,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								532,
+								532
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1561441822.79,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 120.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/sys/repos/online-shopping-site/src/pages/products.tsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1657,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1626,
+								1626
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/TypeScript/TypeScriptReact.tmLanguage",
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 522.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/requests/get_product_details.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 564,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								564,
+								564
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax",
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/requests/mod.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 821,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								135,
+								135
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1561455155.19,
+							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/database/models.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1155,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								773,
+								773
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".:",
+									"selector": "source.rust"
+								}
+							],
+							"lsp_language":
+							{
+								"rls": "rust"
+							},
+							"markdonw_live_preview_last_run": 1561365271.06,
+							"show_definitions": false,
+							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/main.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 836,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								835,
+								835
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".:",
+									"selector": "source.rust"
+								}
+							],
+							"lsp_language":
+							{
+								"rls": "rust"
+							},
+							"markdonw_live_preview_last_run": 1561451419.9,
+							"show_definitions": false,
+							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/home/sys/repos/online-shopping-site/src/App.tsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5075,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4930,
+								4930
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1561451459.07,
+							"syntax": "Packages/TypeScript/TypeScriptReact.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": true,
+								"indentSize": 2,
+								"tabSize": 2
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2862.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/home/sys/repos/online-shopping-site/src/pages/home.tsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2090,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1883,
+								1883
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1561457075.3,
+							"syntax": "Packages/TypeScript/TypeScriptReact.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": true,
+								"indentSize": 4,
+								"tabSize": 4
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 702.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/home/sys/repos/online-shopping-site/src/components/cards.tsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 943,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								333,
+								333
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1561458246.72,
+							"syntax": "Packages/TypeScript/TypeScriptReact.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": true,
+								"indentSize": 4,
+								"tabSize": 4
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "src/auth/cors.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1081,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								705,
+								705
+							]
+						],
+						"settings":
+						{
+							"lsp_language":
+							{
+								"rls": "rust"
+							},
+							"markdonw_live_preview_last_run": 1561366358.28,
+							"show_definitions": false,
+							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 73.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 55.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.diagnostics":
+	{
+		"height": 116.883117676
+	},
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 151.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "entrega.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 354.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

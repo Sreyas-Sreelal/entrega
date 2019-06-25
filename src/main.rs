@@ -27,7 +27,8 @@ fn main() {
                 requests::login::user_login,
                 requests::product_add::product_add,
                 requests::get_random_product::get_random_product,
-                requests::search_product::search_product
+                requests::search_product::search_product,
+                requests::get_product_details::get_product_details
             ],
         )
         .attach(DB::fairing())

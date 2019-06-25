@@ -21,11 +21,13 @@ pub struct Admin {
     user_id: Option<i32>,
 }
 
-#[derive(Queryable, FromForm, Insertable, Deserialize, Serialize, QueryableByName)]
+#[derive(Identifiable,Queryable, FromForm, Insertable, Deserialize, Serialize, QueryableByName)]
+#[primary_key(product_id)]
 #[table_name = "product"]
 pub struct Product {
     pub product_id: Option<String>,
     product_name: String,
+    pub description: Option<String>,
     price: f32,
     rating: Option<f32>,
 }

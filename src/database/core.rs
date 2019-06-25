@@ -72,13 +72,28 @@ pub fn fetch_random_product(conn: &DB, limit: i64) -> Result<Vec<Product>, Json<
     use crate::database::schema::product::dsl::*;
 
     no_arg_sql_function!(RAND, (), "Represents the MySQL RAND() function");
-
     match product
         .order(RAND)
         .limit(limit)
         .load::<Product>(conn as &MysqlConnection)
+
     {
         Ok(u) => Ok(u),
+        Err(err) => Err(Json(json!({
+            "Ok":false,
+            "message":err.to_string()
+        }))),
+    }
+}
+
+
+pub fn fetch_product(conn: &DB, id: Option<String>) -> Result<Product, Json<JsonValue>> {
+    use crate::database::schema::product::dsl::*;
+    match product
+        .filter(product_id.eq(&id))
+        .first::<Product>(conn as &MysqlConnection)
+    {
+        Ok(p) => Ok(p),
         Err(err) => Err(Json(json!({
             "Ok":false,
             "message":err.to_string()

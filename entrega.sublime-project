@@ -1,0 +1,25 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		},
+		{
+			"path": "/home/sys/repos/online-shopping-site"
+		}
+	],
+	"settings":
+	{
+		"LSP":
+		{
+			"rls":
+			{
+				"enabled": true
+			},
+			"typescript-language-server":
+			{
+				"enabled": true
+			}
+		}
+	}
+}
