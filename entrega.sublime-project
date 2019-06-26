@@ -15,7 +15,8 @@
 			"rls":
 			{
 				"enabled": true
-			},
-		}
+			}
+		},
+		"rust_syntax_checking": true
 	}
 }

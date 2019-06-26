@@ -13,9 +13,9 @@ pub mod auth;
 pub mod database;
 pub mod requests;
 
+use crate::auth::cors::CORS;
 use crate::database::core::DB;
 use dotenv::dotenv;
-use crate::auth::cors::CORS;
 
 fn main() {
     dotenv().ok();

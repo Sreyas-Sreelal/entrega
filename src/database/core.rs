@@ -1,7 +1,7 @@
 use crate::database::models::{Admin, Product, User};
 use crate::requests::ProductSearchPayload;
-use diesel::prelude::*;
 use diesel::mysql::MysqlConnection;
+use diesel::prelude::*;
 use rocket_contrib::json::{Json, JsonValue};
 use std::env;
 use uuid::Uuid;
@@ -76,7 +76,6 @@ pub fn fetch_random_product(conn: &DB, limit: i64) -> Result<Vec<Product>, Json<
         .order(RAND)
         .limit(limit)
         .load::<Product>(conn as &MysqlConnection)
-
     {
         Ok(u) => Ok(u),
         Err(err) => Err(Json(json!({
@@ -85,7 +84,6 @@ pub fn fetch_random_product(conn: &DB, limit: i64) -> Result<Vec<Product>, Json<
         }))),
     }
 }
-
 
 pub fn fetch_product(conn: &DB, id: Option<String>) -> Result<Product, Json<JsonValue>> {
     use crate::database::schema::product::dsl::*;

@@ -23,7 +23,7 @@ re = requests.post(
     "http://localhost:8000/user/auth",
     data=json.dumps({
         'name':'Sreyas',
-        'password':'myspass'
+        'password':'password'
     }))
 
 print("Response: ",re.content)

@@ -1,5 +1,6 @@
 pub mod cors;
 use crate::database::core::{check_admin, fetch_user, DB};
+use crate::database::models::User;
 use crate::requests::LoginForm;
 use jsonwebtoken::{decode, encode, Algorithm, Header};
 use rocket::http::Cookies;
@@ -50,7 +51,7 @@ pub fn token_decode(token: &str) -> Result<AuthData, Json<JsonValue>> {
     }
 }
 
-pub fn auth_user(conn: &DB, data: LoginForm) -> Result<String, Json<JsonValue>> {
+pub fn auth_user(conn: &DB, data: LoginForm) -> Result<(String, User, bool), Json<JsonValue>> {
     let username = data.name.to_ascii_lowercase();
 
     let user_fetched = fetch_user(conn, &username)?;
@@ -69,7 +70,7 @@ pub fn auth_user(conn: &DB, data: LoginForm) -> Result<String, Json<JsonValue>> 
 
     let token = token_generate(username, admin);
 
-    Ok(token)
+    Ok((token, user_fetched, admin))
 }
 
 pub fn token_validate(need_admin: bool, cookies: Cookies) -> Result<(), Json<JsonValue>> {

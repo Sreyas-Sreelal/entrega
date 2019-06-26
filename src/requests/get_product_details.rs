@@ -11,7 +11,7 @@ pub struct GetProductPayload {
 #[post("/product/get_product_details", data = "<payload>")]
 pub fn get_product_details(
     conn: DB,
-    payload:Json<GetProductPayload>
+    payload: Json<GetProductPayload>,
 ) -> Result<Json<JsonValue>, Json<JsonValue>> {
     let product = fetch_product(&conn, payload.into_inner().id)?;
     Ok(Json(json!({
