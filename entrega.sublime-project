@@ -16,10 +16,6 @@
 			{
 				"enabled": true
 			},
-			"typescript-language-server":
-			{
-				"enabled": true
-			}
 		}
 	}
 }
