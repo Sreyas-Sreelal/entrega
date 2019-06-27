@@ -15,6 +15,8 @@ pub struct LoginForm {
     pub password: String,
 }
 
+//ProductSearchPayload
+//Format of request data for searching a product 
 #[derive(Deserialize)]
 pub struct ProductSearchPayload {
     pub name: Option<String>,
@@ -22,6 +24,14 @@ pub struct ProductSearchPayload {
     pub max_rate: Option<f32>,
     pub min_price: Option<f32>,
     pub max_price: Option<f32>,
+}
+
+//AuthRequestPayload
+//A general type structure for requests that requires authentication
+#[derive(Deserialize)]
+pub struct AuthRequestPayload<T>{
+    pub token: String,
+    pub data:T
 }
 
 /*

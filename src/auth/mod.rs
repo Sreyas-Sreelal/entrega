@@ -1,9 +1,9 @@
 pub mod cors;
+
 use crate::database::core::{check_admin, fetch_user, DB};
 use crate::database::models::User;
 use crate::requests::LoginForm;
 use jsonwebtoken::{decode, encode, Algorithm, Header};
-use rocket::http::Cookies;
 use rocket_contrib::json::{Json, JsonValue};
 
 #[derive(Debug, RustcEncodable, RustcDecodable)]
@@ -73,16 +73,15 @@ pub fn auth_user(conn: &DB, data: LoginForm) -> Result<(String, User, bool), Jso
     Ok((token, user_fetched, admin))
 }
 
-pub fn token_validate(need_admin: bool, cookies: Cookies) -> Result<(), Json<JsonValue>> {
-    let token = cookies.get("jwt");
-    if token == None {
+pub fn token_validate(need_admin: bool, token:&str) -> Result<(), Json<JsonValue>> {
+    if token.is_empty() {
         return Err(Json(json!({
             "Ok":false,
             "message":"Empty token"
         })));
     }
 
-    let auth = token_decode(token.unwrap().value())?;
+    let auth = token_decode(token)?;
     if !auth.is_admin() && need_admin {
         return Err(Json(json!({
             "Ok": false,
