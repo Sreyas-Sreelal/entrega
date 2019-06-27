@@ -18,24 +18,63 @@ re = session.post(
         'name':'Sreyas',
         'password':'password'
 }))
-
 print("Response: ",re.content)
-#print("\n Session cookies ",re.cookies)
-token = re.cookies.get("jwt")
+token = re.json()["token"]
 print("Token is ",token)
 
+re = session.post(
+"http://localhost:8000/product/new",
+data=json.dumps({
+    'token':'fake',
+    'data':{
+        'product_name': "fake",
+        'price': 1,
+        'rating': 1.0,
+        'description':"fake"
+    }
+}),
+)
+print("Response: ",re.content)
+
+re = session.post(
+"http://localhost:8000/product/new",
+data=json.dumps({
+    'token':'',
+    'data':{
+        'product_name': "fake",
+        'price': 1,
+        'rating': 1.0,
+        'description':"fake"
+    }
+}),
+)
+
+re = session.post(
+"http://localhost:8000/product/new",
+data=json.dumps({
+    'data':{
+        'product_name': "fake",
+        'price': 1,
+        'rating': 1.0,
+        'description':"fake"
+    }
+}),
+)
+print("Response: ",re.content)
 
 def genproduct(product_name,price,rating,description):
     global token
     re = session.post(
         "http://localhost:8000/product/new",
         data=json.dumps({
-            'product_name': product_name,
-            'price': price,
-            'rating': rating,
-            'description':description
+            'token':token,
+            'data':{
+                'product_name': product_name,
+                'price': price,
+                'rating': rating,
+                'description':description
+            }
         }),
-        cookies={"jwt":token}
         )
     print("Response: ",re.content)
 
