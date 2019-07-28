@@ -68,6 +68,17 @@ pub fn create_product(conn: &DB, mut item: Product) -> Result<String, Json<JsonV
     }
 }
 
+pub fn delete_product(conn: &DB,pid:String) -> Result<(), Json<JsonValue>> {
+    use crate::database::schema::product::dsl::*;
+    match diesel::delete(product.filter(product_id.eq(pid))).execute(conn as &MysqlConnection) {
+        Ok(_) => Ok(()),
+        Err(err) => Err(Json(json!({
+            "Ok":false,
+            "message":err.to_string()
+        }))),
+    }
+}
+
 pub fn fetch_random_product(conn: &DB, limit: i64) -> Result<Vec<Product>, Json<JsonValue>> {
     use crate::database::schema::product::dsl::*;
 
@@ -124,3 +135,4 @@ pub fn db_search_product(
         "message":"UnRecognised payload"
     })))
 }
+

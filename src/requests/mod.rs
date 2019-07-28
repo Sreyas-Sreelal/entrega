@@ -4,6 +4,7 @@ pub mod login;
 pub mod product_add;
 pub mod register;
 pub mod search_product;
+pub mod product_remove;
 
 use serde_derive::Deserialize;
 
@@ -34,14 +35,4 @@ pub struct AuthRequestPayload<T>{
     pub data:T
 }
 
-/*
-//RegisterForm
-//used as structure for serialising register request forms
-#[derive(FromForm,Debug,Insertable)]
-pub struct RegisterForm {
-    user_name: String,
-    email: String,
-    display_name: String,
-    password: String,
-    address: String
-}*/
+
