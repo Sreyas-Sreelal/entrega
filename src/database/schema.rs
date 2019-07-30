@@ -6,11 +6,12 @@ table! {
 
 table! {
     order (order_id) {
-        order_id -> Integer,
+        order_id -> Varchar,
         product_id -> Nullable<Varchar>,
         user_id -> Integer,
         ordered_date -> Integer,
         expected_date -> Integer,
+        order_status -> Nullable<Varchar>,
     }
 }
 
@@ -21,6 +22,7 @@ table! {
         description -> Nullable<Text>,
         price -> Float,
         rating -> Nullable<Float>,
+        quantity -> Nullable<Integer>,
     }
 }
 

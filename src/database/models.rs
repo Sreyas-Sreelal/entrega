@@ -30,14 +30,16 @@ pub struct Product {
     pub description: Option<String>,
     price: f32,
     rating: Option<f32>,
+    quantity: Option<i32>,
 }
 
 #[derive(Queryable, FromForm, Associations, Insertable)]
 #[table_name = "order"]
 pub struct Order {
-    order_id: i32,
+    order_id: Option<String>,
     product_id: Option<String>,
     user_id: i32,
     ordered_date: i32,
     expected_date: i32,
+    order_status: Option<String>,
 }

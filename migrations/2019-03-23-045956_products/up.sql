@@ -3,5 +3,6 @@ CREATE TABLE product(
     product_name VARCHAR(120) NOT NULL,
     description TEXT,
     price FLOAT NOT NULL,
-    rating FLOAT DEFAULT 0.0    
+    rating FLOAT DEFAULT 0.0,
+    quantity INTEGER DEFAULT 0  
 )

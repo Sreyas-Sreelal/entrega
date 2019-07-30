@@ -68,7 +68,7 @@ pub fn create_product(conn: &DB, mut item: Product) -> Result<String, Json<JsonV
     }
 }
 
-pub fn delete_product(conn: &DB,pid:String) -> Result<(), Json<JsonValue>> {
+pub fn delete_product(conn: &DB, pid: String) -> Result<(), Json<JsonValue>> {
     use crate::database::schema::product::dsl::*;
     match diesel::delete(product.filter(product_id.eq(pid))).execute(conn as &MysqlConnection) {
         Ok(_) => Ok(()),
@@ -135,4 +135,3 @@ pub fn db_search_product(
         "message":"UnRecognised payload"
     })))
 }
-
