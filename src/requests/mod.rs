@@ -2,9 +2,9 @@ pub mod get_product_details;
 pub mod get_random_product;
 pub mod login;
 pub mod product_add;
+pub mod product_remove;
 pub mod register;
 pub mod search_product;
-pub mod product_remove;
 
 use serde_derive::Deserialize;
 
@@ -17,7 +17,7 @@ pub struct LoginForm {
 }
 
 //ProductSearchPayload
-//Format of request data for searching a product 
+//Format of request data for searching a product
 #[derive(Deserialize)]
 pub struct ProductSearchPayload {
     pub name: Option<String>,
@@ -30,9 +30,7 @@ pub struct ProductSearchPayload {
 //AuthRequestPayload
 //A general type structure for requests that requires authentication
 #[derive(Deserialize)]
-pub struct AuthRequestPayload<T>{
+pub struct AuthRequestPayload<T> {
     pub token: String,
-    pub data:T
+    pub data: T,
 }
-
-

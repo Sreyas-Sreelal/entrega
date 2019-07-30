@@ -73,7 +73,7 @@ pub fn auth_user(conn: &DB, data: LoginForm) -> Result<(String, User, bool), Jso
     Ok((token, user_fetched, admin))
 }
 
-pub fn token_validate(need_admin: bool, token:&str) -> Result<(), Json<JsonValue>> {
+pub fn token_validate(need_admin: bool, token: &str) -> Result<(), Json<JsonValue>> {
     if token.is_empty() {
         return Err(Json(json!({
             "Ok":false,
